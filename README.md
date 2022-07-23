@@ -47,7 +47,7 @@ python main.py configs/mnist_exp_0.yaml 0,1
 ```
 
 
-# Detials:
+# Details:
 
 ---
 
