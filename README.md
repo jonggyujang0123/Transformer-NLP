@@ -24,7 +24,7 @@ Practice of the paper [Attention is All You Need](https://arxiv.org/abs/1706.037
 
 # Detials:
 
-- Languate Modeling with nn.Transformer and TorchText
+- Languate Modeling with nn.Transformer and TorchText [Tutorial]()
 - 
 
 ---
