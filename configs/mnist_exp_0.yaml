@@ -1,10 +1,8 @@
-exp_name: 'example_exp_0'
+exp_name: 'MNIST_0'
 agent: 'MnistAgent'
-mode: 'train'
 
 cuda: true
-gpu_device: 0
-seed: 1337
+seed: 1
 
 some_model_attribute: 0
 
@@ -22,7 +20,10 @@ max_epoch: 20
 validate_every: 90
 log_interval: 90
 
+save_best: True
+
 checkpoint_file: 'checkpoint.pth.tar'
+checkpoint_dir: './experiments'
 
 data_loader": 'MnistDataLoader'
 data_loader_workers: 2

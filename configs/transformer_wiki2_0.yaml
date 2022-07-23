@@ -1,0 +1,37 @@
+exp_name: 'Trans_Wiki2_0'
+agent: 'TransformerAgent'
+
+cuda: true
+seed: 1
+
+some_model_attribute: 0
+
+batch_size: 20
+test_batch_size: 10
+
+emsize: 512
+d_hid: 2048 # dimension of the hidden layer in nn.TransformerEncoder
+nlayers: 6 # number of layer in encoder
+nhead: 8 # number of heads in nn.MultiheadAttention
+
+dropout: 0.2
+
+learning_rate: 0.0002
+weight_decay: 0
+beta1: 0.5
+beta2: 0.999
+momentum: 0.9
+
+max_epoch: 20
+
+validate_every: 90
+log_interval: 90
+
+save_best: True
+
+checkpoint_file: 'checkpoint.pth.tar'
+checkpoint_dir: './experiments'
+
+data_loader": 'WikiText2DataLoader'
+data_folder: 
+  value: './data/WikiText2'

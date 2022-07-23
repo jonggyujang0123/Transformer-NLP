@@ -15,42 +15,38 @@ class MnistDataLoader:
         :param config:
         """
         self.config = config
+        transform_train = transforms.Compose([transforms.ToTensor(),
+                                        transforms.Normalize((0.1307,), (0.3081,))])
+        transform_test = transforms.Compose([transforms.ToTensor(),
+                                        transforms.Normalize((0.1307,), (0.3081,))])
         if config.data_mode == "download":
-            self.train_loader = torch.utils.data.DataLoader(
-                datasets.MNIST('./data', train=True, download=True,
-                               transform=transforms.Compose([
-                                   transforms.ToTensor(),
-                                   transforms.Normalize((0.1307,), (0.3081,))
-                               ])),
-                batch_size=self.config.batch_size, shuffle=True, num_workers=self.config.data_loader_workers, pin_memory=self.config.pin_memory)
-            self.test_loader = torch.utils.data.DataLoader(
-                datasets.MNIST('../data', train=False, transform=transforms.Compose([
-                    transforms.ToTensor(),
-                    transforms.Normalize((0.1307,), (0.3081,))
-                ])),
-                batch_size=self.config.test_batch_size, shuffle=True, num_workers=self.config.data_loader_workers, pin_memory=self.config.pin_memory)
+            dataset = datasets.MNIST('./data', train=True, download=True,
+                                   transform=transform_train)
+            dataset_train, dataset_val = torch.utils.data.random_split(dataset, [50000, 10000], generator=torch.Generator().manual_seed(1))
+            dataset_test = datasets.MNIST('./data',
+                                        train=False,
+                                        download=True,
+                                        transform=transform_test)
+            self.train_loader = torch.utils.data.DataLoader(dataset_train,
+                                                            batch_size=self.config.batch_size,
+                                                            shuffle=True,
+                                                            num_workers=self.config.data_loader_workers,
+                                                            pin_memory=self.config.pin_memory)
+            self.val_loader = torch.utils.data.DataLoader(dataset_val,
+                                                        batch_size=self.config.test_batch_size,
+                                                        shuffle=True,
+                                                        num_workers=self.config.data_loader_workers,
+                                                        pin_memory=self.config.pin_memory)
+            self.test_loader = torch.utils.data.DataLoader(dataset_test,
+                                                        batch_size=self.config.test_batch_size,
+                                                        shuffle=True,
+                                                        num_workers=self.config.data_loader_workers,
+                                                        pin_memory=self.config.pin_memory)
         elif config.data_mode == "imgs":
             raise NotImplementedError("This mode is not implemented YET")
 
         elif config.data_mode == "numpy":
             raise NotImplementedError("This mode is not implemented YET")
-
-        elif config.data_mode == "random":
-            train_data = torch.randn(self.config.batch_size, self.config.input_channels, self.config.img_size, self.config.img_size)
-            train_labels = torch.ones(self.config.batch_size).long()
-            valid_data = train_data
-            valid_labels = train_labels
-            self.len_train_data = train_data.size()[0]
-            self.len_valid_data = valid_data.size()[0]
-
-            self.train_iterations = (self.len_train_data + self.config.batch_size - 1) // self.config.batch_size
-            self.valid_iterations = (self.len_valid_data + self.config.batch_size - 1) // self.config.batch_size
-
-            train = TensorDataset(train_data, train_labels)
-            valid = TensorDataset(valid_data, valid_labels)
-
-            self.train_loader = DataLoader(train, batch_size=config.batch_size, shuffle=True)
-            self.test_loader = DataLoader(valid, batch_size=config.batch_size, shuffle=False)
 
         else:
             raise Exception("Please specify in the json a specified mode in data_mode")
@@ -84,7 +80,7 @@ class MnistDataLoader:
             except OSError as e:
                 pass
 
-        imageio.mimsave(self.config.out_dir + 'animation_epochs_{:d}.gif'.format(epochs), gen_image_plots, fps=2)
+        imageio.mimsave(self.config.out_dir + 'result.gif'.format(epochs), gen_image_plots, fps=2)
 
     def finalize(self):
         pass

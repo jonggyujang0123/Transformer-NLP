@@ -1,5 +1,13 @@
 # Pytorch-Project-Template
 
+## Prerequisit
+```
+pip install torchtext
+pip install torchdata
+```
+
+### Note
+
 Wandb and yaml configuration is added. 
 
 For train/test run the following code
@@ -9,11 +17,15 @@ python main.py [config] [gpuids]
 python main.py configs/mnist_exp_0.yaml 0,1
 ```
 
-## Wandb implementation 
+## Introduction 
 
-<img width="1586" alt="스크린샷 2022-07-22 오전 1 34 26" src="https://user-images.githubusercontent.com/88477912/180267218-a5e82f0b-35cb-4e1b-8344-751bd02352e3.png">
+Practice of the paper [Attention is All You Need](https://arxiv.org/abs/1706.03762)
+
 
 # Detials:
+
+- Languate Modeling with nn.Transformer and TorchText
+- 
 
 ---
 
