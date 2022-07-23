@@ -67,7 +67,7 @@ class WikiText2DataLoader:
         data = source[i:i+seq_len]
         target = source[i+1:i+1+seq_len].reshape(-1)
         return data, targe
-    def get_ntokens(self)
+    def get_ntokens(self):
         return len(self.vocab)
 
     def finalize(self):

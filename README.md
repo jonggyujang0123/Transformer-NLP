@@ -1,4 +1,6 @@
-# Pytorch-Project-Template
+# Pactice of Transformer-NLP
+
+Re-implementation of the pytorch tutorials in [pytorch.org](pytorch.org)
 
 ## Prerequisit
 ```
@@ -23,12 +25,22 @@ Practice of the paper [Attention is All You Need](https://arxiv.org/abs/1706.037
 
 ## Tutorials
 
-- Languate Modeling with nn.Transformer and TorchText [Tutorial](https://github.com/jonggyujang0123/Transformer-NLP/blob/master/tutorials/Language_Modeling.ipynb)
-- 
+- Language Modeling with nn.Transformer and TorchText [Tutorial](https://github.com/jonggyujang0123/Transformer-NLP/blob/master/tutorials/Language_Modeling.ipynb)
+- Language Translator with nn.Transformer and TorchText [Tutorial](https://github.com/jonggyujang0123/Transformer-NLP/blob/master/tutorials/Language_Translator.ipynb)
 
 ## Implementation Codes
 
+### Language Modeling
 
+```
+python 
+```
+
+### Language Translator
+
+```
+python
+```
 
 # Detials:
 
