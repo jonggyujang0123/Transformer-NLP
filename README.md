@@ -8,16 +8,6 @@ pip install torchtext
 pip install torchdata
 ```
 
-### Note
-
-Wandb and yaml configuration is added. 
-
-For train/test run the following code
-
-```
-python main.py [config] [gpuids]
-python main.py configs/mnist_exp_0.yaml 0,1
-```
 
 ## Introduction 
 
@@ -27,8 +17,11 @@ Practice of the paper [Attention is All You Need](https://arxiv.org/abs/1706.037
 
 - Language Modeling with nn.Transformer and TorchText [Tutorial](https://github.com/jonggyujang0123/Transformer-NLP/blob/master/tutorials/Language_Modeling.ipynb)
 - Language Translator with nn.Transformer and TorchText [Tutorial](https://github.com/jonggyujang0123/Transformer-NLP/blob/master/tutorials/Language_Translator.ipynb)
+- Bert Classifier [Tutorial](https://github.com/jonggyujang0123/Transformer-NLP/blob/master/tutorials/BERT_classifier.ipynb)
 
 ## Implementation Codes
+
+To be added soon  ....
 
 ### Language Modeling
 
@@ -41,6 +34,18 @@ python
 ```
 python
 ```
+
+### Note
+
+Wandb and yaml configuration is added. 
+
+For train/test run the following code
+
+```
+python main.py [config] [gpuids]
+python main.py configs/mnist_exp_0.yaml 0,1
+```
+
 
 # Detials:
 
