@@ -1,20 +1,13 @@
-exp_name: 'Trans_Wiki2_0'
-agent: 'TransformerAgent'
+exp_name: 'MNIST_0'
+agent: 'MnistAgent'
 
 cuda: true
 seed: 1
 
 some_model_attribute: 0
 
-batch_size: 20
-test_batch_size: 10
-
-emsize: 512
-d_hid: 2048 # dimension of the hidden layer in nn.TransformerEncoder
-nlayers: 6 # number of layer in encoder
-nhead: 8 # number of heads in nn.MultiheadAttention
-
-dropout: 0.2
+batch_size: 64
+test_batch_size: 64
 
 learning_rate: 0.0002
 weight_decay: 0
@@ -32,6 +25,11 @@ save_best: True
 checkpoint_file: 'checkpoint.pth.tar'
 checkpoint_dir: './experiments'
 
-data_loader": 'WikiText2DataLoader'
+data_loader": 'MnistDataLoader'
+data_loader_workers: 2
+pin_memory: true
+async_loading: true
+
+data_mode: 'download'
 data_folder: 
-  value: './data/WikiText2'
+  value: './data/MNIST'
